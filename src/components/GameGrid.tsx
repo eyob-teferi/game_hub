@@ -4,7 +4,7 @@ import GameCard from "./GameCard";
 import GameCardSkelton from "./GameCardSkelton";
 
 const GameGrid = () => {
-  const { games, error, loading } = useGames();
+  const { data, error, loading } = useGames();
   const skeltons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
   return (
@@ -19,7 +19,7 @@ const GameGrid = () => {
           skeltons.map((skelton) => (
             <GameCardSkelton key={skelton}></GameCardSkelton>
           ))}
-        {games.map((game) => (
+        {data.map((game) => (
           <GameCard game={game} key={game.id} />
         ))}
       </SimpleGrid>
