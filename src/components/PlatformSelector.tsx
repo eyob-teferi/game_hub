@@ -14,7 +14,7 @@ const PlatformSelector = ({onSelectedPlatform,selectedPlatform}:Props) => {
   if(error) return null;
   return (
     <Menu>
-      <MenuButton padding='10px' as={Button} rightIcon={<BsChevronDown />}>
+      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
         {selectedPlatform?.name || 'Platforms'}
       </MenuButton>
       <MenuList>
