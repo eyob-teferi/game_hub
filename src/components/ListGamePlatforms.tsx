@@ -30,6 +30,7 @@ const ListGamePlatforms = ({ platform }: Props) => {
         web:BsGlobe,
         android:BsAndroid2
     }
+    if(!platform) return null
   return (
     <HStack marginY={1}>
       {platform.map(({ platform }) => (
