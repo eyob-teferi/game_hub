@@ -1,5 +1,6 @@
 import {
   Button,
+  Heading,
   HStack,
   Image,
   List,
@@ -23,6 +24,7 @@ const GenreList = ({ onGenreClick,selectedGenre }: Props) => {
 
   return (
     <>
+      <Heading fontSize={'2xl'} marginY={5}>Genres</Heading>
       {loading && <Spinner />}
       <List spacing={3}>
         {data.map((genre) => (
@@ -32,28 +34,18 @@ const GenreList = ({ onGenreClick,selectedGenre }: Props) => {
                 src={getCroppedImageUrl(genre.image_background)}
                 boxSize="40px"
                 borderRadius={8}
+                objectFit={'cover'}
               />
-              {genre.name === "Massively Multiplayer" ? (
-                <Tooltip label={genre.name} placement="top">
-                  <Button
-                    fontSize={"lg"}
-                    variant="link"
-                    onClick={() => onGenreClick(genre)}
-                    fontWeight={genre.id===selectedGenre?.id ? 'bold':'normal'}
-                  >
-                    <Text isTruncated>{genre.name}</Text>
-                  </Button>
-                </Tooltip>
-              ) : (
                 <Button
                   fontSize={"lg"}
                   variant="link"
                   onClick={() => onGenreClick(genre)}
                   fontWeight={genre.id===selectedGenre?.id ? 'bold':'normal'}
+                  whiteSpace={'normal'}
+                  textAlign={'left'}
                 >
-                  <Text isTruncated>{genre.name}</Text>
+                 {genre.name}
                 </Button>
-              )}
             </HStack>
           </ListItem>
         ))}

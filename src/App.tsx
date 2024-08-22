@@ -35,7 +35,7 @@ function App() {
           <NavBar onSearch={(searchText)=>setGameQuery({...gameQuery,searchText})} />
         </GridItem>
         <Show above="lg">
-          <GridItem area="aside" paddingLeft="10px">
+          <GridItem area="aside" paddingLeft={5}>
             <GenreList
               selectedGenre={gameQuery.genre}
               onGenreClick={(genre) => setGameQuery({ ...gameQuery, genre })}
@@ -52,7 +52,7 @@ function App() {
               }
             />
             <SortSelector sortOrder={gameQuery.sortOrder} onSortOrderClicked={(sortOrder)=>setGameQuery({...gameQuery,sortOrder})}/>
-          </HStack>
+          </HStack> 
           <GameGrid gameQuery={gameQuery} />
         </GridItem>
       </Grid>
