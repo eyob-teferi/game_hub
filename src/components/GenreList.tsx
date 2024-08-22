@@ -6,8 +6,6 @@ import {
   List,
   ListItem,
   Spinner,
-  Text,
-  Tooltip,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
@@ -22,10 +20,11 @@ const GenreList = ({ onGenreClick,selectedGenre }: Props) => {
 
   if (error) return null;
 
+  if(loading) return <Spinner />
+
   return (
     <>
       <Heading fontSize={'2xl'} marginY={5}>Genres</Heading>
-      {loading && <Spinner />}
       <List spacing={3}>
         {data.map((genre) => (
           <ListItem key={genre.id}>

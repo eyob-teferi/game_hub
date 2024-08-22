@@ -13,7 +13,7 @@ const GameGrid = ({gameQuery}:Props) => {
   const { data, error, loading } = useGames(gameQuery);
   const skeltons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
-  if(data.length===0) return <Text>No games found in this catagory</Text>
+  
 
   return (
     <>
