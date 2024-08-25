@@ -1,6 +1,5 @@
-import apiClient from "../services/api-client";
 import { useQuery } from "@tanstack/react-query";
-import { Response } from "../services/api-client";
+import ApiClient from "../services/api-client";
 
 
 export interface Genre {
@@ -9,11 +8,13 @@ export interface Genre {
   image_background: string;
 }
 
+const apiClient=new ApiClient<Genre>('genres')
 
 const useGenres = () => {
+  
   return useQuery({
     queryKey: ["genres"],
-    queryFn: () => apiClient.get<Response<Genre>>("/genres").then((res) => res.data),
+    queryFn:apiClient.get,
     staleTime: 24 * 60 * 60 * 1000,
   });
 };
