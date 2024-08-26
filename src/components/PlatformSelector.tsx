@@ -13,7 +13,7 @@ interface Props{
 const PlatformSelector = ({onSelectedPlatform,selectedPlatform}:Props) => {
   const { data, error } = usePlatforms();
 
-  const platform=data.results.find(p=>p.id===selectedPlatform);
+  const platform=data?.results.find(p=>p.id===selectedPlatform);
 
   if(error) return null;
   return (
