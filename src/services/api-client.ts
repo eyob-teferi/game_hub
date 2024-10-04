@@ -6,7 +6,7 @@ export interface Response<T>{
     results:T[]
 }
 
- const apiClient=axios.create({
+ export const apiClient=axios.create({
     baseURL:'https://api.rawg.io/api',
     params:{
         key:'808a2b389b5241bb99b1d8bd52c106b9'
@@ -21,10 +21,13 @@ class ApiClient<T>{
         this.endpoint=endpoint
     }
 
-    get=(config?:AxiosRequestConfig)=>{
+    getAll=(config?:AxiosRequestConfig)=>{
        return apiClient.get<Response<T>>(this.endpoint,config).then(res=>res.data)
     }
-
+    
+    get=()=>{
+        return apiClient.get<T>(this.endpoint).then(res=>res.data)
+    }
 }
 
 export default ApiClient

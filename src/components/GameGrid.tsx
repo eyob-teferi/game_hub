@@ -10,8 +10,7 @@ const GameGrid = () => {
 
   const skeltons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12];
 
-  const items =
-    data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
+  const items = data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
 
   return (
     <>
