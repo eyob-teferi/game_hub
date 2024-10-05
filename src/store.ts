@@ -1,3 +1,4 @@
+import { useNavigate, useNavigation } from "react-router-dom";
 import { create } from "zustand";
 
 interface GameQuery {
@@ -14,6 +15,8 @@ interface GameQueryStore {
   setGenreId: (genreId: number) => void;
   setSortOrder: (sortOrder: string) => void;
 }
+
+
 
 const useGameQueryStore=create<GameQueryStore>((set) => ({
   gameQuery: {},
